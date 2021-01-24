@@ -14,6 +14,9 @@ ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
+# Set workdir
+WORKDIR /root
+
 # Setup base
 
 RUN apk add --no-cache \
