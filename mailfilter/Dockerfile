@@ -15,6 +15,7 @@ ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 
 # Setup base
+
 RUN apk add --no-cache \
     nginx \ 
     clamav-libs \

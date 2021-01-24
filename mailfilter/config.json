@@ -6,15 +6,11 @@
   "url": "https://github.com/erik73/hassio-addons",
   "arch": ["aarch64", "amd64", "armv7", "i386"],
   "stage": "experimental",
-  "startup": "application",
   "init": false,
   "ingress": true,
   "panel_icon": "mdi:filter",
-  "boot": "auto",
-  "host_network": false,
   "hassio_api": true,
   "ingress_port": 1337,
-  "hassio_role": "default",
   "options": {
     "enable_antivirus": false
   },
