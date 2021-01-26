@@ -1,4 +1,4 @@
-# Home Assistant Community Add-on: Mailfilter
+# Home Assistant Add-on: Mailfilter
 
 ![Project Stage][project-stage-shield]
 
@@ -11,14 +11,16 @@
 ![Project Maintenance][maintenance-shield]
 [![GitHub Activity][commits-shield]][commits]
 
-Postfix/Dovecot mailserver with Postfixadmin web interface...
+A mailfilter based on Rspamd and ClamAV for the Mailserver
+add-on published in this repository.
 
 ## About
 
-Important: This addon is requires that the Mailserver addon is installed!
+Important: This add-on is requires that the Home Assistant Mailserver add-on
+is installed!
 
-This addon is experimental, and provides a mailfilter for your mailserver.
-web interface.
+This addon is experimental, and provides a mailfilter for your 
+Home Assistant mailserver.
 
 ## Support
 
