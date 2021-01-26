@@ -19,7 +19,7 @@ add-on published in this repository.
 Important: This add-on is requires that the Home Assistant Mailserver add-on
 is installed!
 
-This addon is experimental, and provides a mailfilter for your 
+This addon is experimental, and provides a mailfilter for your
 Home Assistant mailserver.
 
 ## Support
