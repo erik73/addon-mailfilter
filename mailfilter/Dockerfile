@@ -1,11 +1,10 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base/amd64:9.1.1
+ARG BUILD_FROM=ghcr.io/erik73/base/amd64:1.0.0
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
-ARG JEMALLOC_VERSION=5.2.1
 ARG BUILD_ARCH
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION
@@ -47,11 +46,6 @@ RUN apk add --no-cache \
     lua5.1-dev \
     git \
     && mkdir -p /usr/src \
-    && curl -L -s https://github.com/jemalloc/jemalloc/releases/download/${JEMALLOC_VERSION}/jemalloc-${JEMALLOC_VERSION}.tar.bz2 | tar -xjf - -C /usr/src \
-    && cd /usr/src/jemalloc-${JEMALLOC_VERSION} \
-    && ./configure \
-    && make \
-    && make install \
     && cd /usr/src \
     && git clone -b 2.7 --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
@@ -62,7 +56,6 @@ RUN apk add --no-cache \
     && rm -f -r \
         /tmp/* \
         /usr/src/rspamd \
-        /usr/src/jemalloc-${JEMALLOC_VERSION} \
     && S6_ARCH="${BUILD_ARCH}" \
     && if [ "${BUILD_ARCH}" = "i386" ]; then S6_ARCH="x86"; fi \
     && if [ "${BUILD_ARCH}" = "armv7" ]; then S6_ARCH="arm"; fi \
