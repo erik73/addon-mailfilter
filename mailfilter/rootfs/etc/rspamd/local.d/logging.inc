@@ -12,8 +12,7 @@
 # for details
 #
 # Relevant documentation: https://rspamd.com/doc/configuration/logging.html
-type= "syslog";
-facility "mail";
+type= "console";
 level = "warning";
 log_format =<<EOD
 id: <$mid>,$if_qid{ qid: <$>,}$if_ip{ ip: $,}$if_user{ user: $,}$if_smtp_from{ from: <$>,}
