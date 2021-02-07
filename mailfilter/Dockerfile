@@ -55,7 +55,12 @@ RUN apk add --no-cache \
     && cd / \
     && rm -f -r \
         /tmp/* \
-        /usr/src/rspamd
+        /usr/src/rspamd \
+    && S6_ARCH="${BUILD_ARCH}" \
+    && if [ "${BUILD_ARCH}" = "i386" ]; then S6_ARCH="x86"; fi \
+    && if [ "${BUILD_ARCH}" = "armv7" ]; then S6_ARCH="arm"; fi \
+    && curl -L -s "https://github.com/just-containers/socklog-overlay/releases/download/v3.1.1-1/socklog-overlay-${S6_ARCH}.tar.gz" \
+        | tar zxvf - -C /;
 
 ENV LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
 
