@@ -24,6 +24,12 @@
     # rspamadm dkim_keygen -b 2048 -s mail -k /var/lib/rspamd/dkim/mail.key | tee -a  /var/lib/rspamd/dkim/mail.pub
     # chown -R rspamd:rspamd /var/lib/rspamd/dkim
 
+# Add symbolic link to make logging work in older supervisor
+if ! readlink /dev/log >/dev/null 2>&1
+then
+ln -s /run/systemd/journal/dev-log /dev/log
+fi
+
 #Create rspamd encrypted password and set listening IP
 rspamdpw="$(date | md5sum)"
 encryptedpw="$(rspamadm pw --encrypt -p ${rspamdpw})"
