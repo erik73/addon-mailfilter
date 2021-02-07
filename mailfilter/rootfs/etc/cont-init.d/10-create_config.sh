@@ -42,5 +42,5 @@ fi
 if bashio::config.true "enable_antivirus"; then
     sed -i '1d' /etc/rspamd/local.d/antivirus.conf
     bashio::log.info "Updating antivirus patterns"
-    freshclam --stdout
+    freshclam
 fi
