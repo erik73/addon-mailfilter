@@ -43,6 +43,7 @@ sed -i '2 s/^bind.*$/bind_socket = "'${myip}:11332'";/g' /etc/rspamd/local.d/wor
 if bashio::config.false "enable_antivirus"; then
     rm -fr /etc/services.d/clamav
     rm -fr /etc/services.d/freshclam
+    rm -rf /data/lib/clamav
 fi
 
 if bashio::config.true "enable_antivirus"; then
