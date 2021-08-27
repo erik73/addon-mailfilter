@@ -28,7 +28,7 @@ RUN apk add --no-cache \
     sqlite-libs \
     glib \
     icu-libs \
-    lua5.1 \
+    lua5.3 \
 && apk add --no-cache --virtual .build-dependencies \
     build-base \
     cmake \
@@ -43,7 +43,7 @@ RUN apk add --no-cache \
     perl \
     ragel \
     sqlite-dev \
-    lua5.1-dev \
+    lua5.3-dev \
     git \
     && mkdir -p /usr/src \
     && cd /usr/src \
