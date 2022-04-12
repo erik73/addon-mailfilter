@@ -1,4 +1,5 @@
-ARG BUILD_FROM=ghcr.io/erik73/base/amd64:1.0.9
+ARG BUILD_FROM=ghcr.io/erik73/base/amd64:1.0.12
+
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -28,7 +29,7 @@ RUN apk add --no-cache \
     sqlite-libs \
     glib \
     icu-libs \
-    lua5.1 \
+    luajit \
 && apk add --no-cache --virtual .build-dependencies \
     build-base \
     cmake \
@@ -43,13 +44,13 @@ RUN apk add --no-cache \
     perl \
     ragel \
     sqlite-dev \
-    lua5.1-dev \
+    luajit-dev \
     git \
     && mkdir -p /usr/src \
     && cd /usr/src \
     && git clone -b 2.7 --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
-    && cmake -DCMAKE_INSTALL_PREFIX= . -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=OFF \
+    && cmake -DCMAKE_INSTALL_PREFIX= . -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=ON \
     && make install \
     && apk del .build-dependencies \
     && cd / \
