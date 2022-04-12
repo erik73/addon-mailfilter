@@ -29,7 +29,7 @@ RUN apk add --no-cache \
     sqlite-libs \
     glib \
     icu-libs \
-    luajit \
+    lua5.3 \
 && apk add --no-cache --virtual .build-dependencies \
     build-base \
     cmake \
@@ -44,13 +44,13 @@ RUN apk add --no-cache \
     perl \
     ragel \
     sqlite-dev \
-    luajit-dev \
+    lua5.3-dev \
     git \
     && mkdir -p /usr/src \
     && cd /usr/src \
     && git clone -b 2.7 --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
-    && cmake -DCMAKE_INSTALL_PREFIX= . -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=ON \
+    && cmake -DCMAKE_INSTALL_PREFIX= . -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=OFF \
     && make install \
     && apk del .build-dependencies \
     && cd / \
