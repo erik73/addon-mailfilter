@@ -50,7 +50,7 @@ RUN apk add --no-cache \
     && cd /usr/src \
     && git clone -b 3.2 --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
-    && cmake -DCMAKE_INSTALL_PREFIX= . -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=OFF \
+    && cmake -DCMAKE_INSTALL_PREFIX= . -DUSE_IPO=off -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=OFF \
     && make install \
     && apk del .build-dependencies \
     && cd / \
