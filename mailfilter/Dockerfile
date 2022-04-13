@@ -52,7 +52,7 @@ RUN apk add --no-cache \
     && cd rspamd \
     && export CFLAGS=-U_FORTIFY_SOURCE \
     && export CXXFLAGS=-U_FORTIFY_SOURCE \
-    && cmake -DCMAKE_INSTALL_PREFIX= . -DUSE_IPO=off -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=OFF \
+    && cmake -DCMAKE_INSTALL_PREFIX= . -DENABLE_JEMALLOC=ON -DENABLE_LUAJIT=OFF \
     && make install \
     && apk del .build-dependencies \
     && cd / \
