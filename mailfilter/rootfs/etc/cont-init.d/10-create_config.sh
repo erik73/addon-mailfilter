@@ -1,4 +1,4 @@
-#!/usr/bin/with-contenv bashio
+#!/command/with-contenv bashio
 
     addgroup -S rspamd
     adduser -S -D -H -G rspamd rspamd
