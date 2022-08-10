@@ -30,6 +30,14 @@ then
 ln -s /run/systemd/journal/dev-log /dev/log
 fi
 
+# Modify config files for S6-logging
+sed -i 's#^ + .*$# + -^auth\\. -^authpriv\\. -mail\\. $T ${dir}/everything#' /etc/s6-overlay/s6-rc.d/syslogd-log/run
+sed -i 's#^ + .*$# + -^auth\\. -^authpriv\\. -mail\\. $T ${dir}/everything#' /run/service/syslogd-log/run.user
+sed -i 's#^backtick .*$#backtick -D "n20 s1000000 T 1" line { printcontenv S6_LOGGING_SCRIPT }#' /etc/s6-overlay/s6-rc.d/syslogd-log/run
+sed -i 's#^backtick .*$#backtick -D "n20 s1000000 T 1" line { printcontenv S6_LOGGING_SCRIPT }#' /run/service/syslogd-log/run.user
+sed -i 's#^s6-socklog .*$#s6-socklog -d3 -U -t3000 -x /run/systemd/journal/dev-log#' /etc/s6-overlay/s6-rc.d/syslogd/run
+sed -i 's#^s6-socklog .*$#s6-socklog -d3 -U -t3000 -x /run/systemd/journal/dev-log#' /run/service/syslogd/run.user
+
 #Create rspamd encrypted password and set listening IP
 rspamdpw="$(date | md5sum)"
 encryptedpw="$(rspamadm pw --encrypt -p ${rspamdpw})"
