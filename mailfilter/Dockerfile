@@ -60,7 +60,7 @@ RUN apk add --no-cache \
         /tmp/* \
         /usr/src/rspamd \
     && mkdir -p /run/systemd/journal \
-    && S6_VERSION="3.1.1.2" \
+    && S6_VERSION="3.1.2.1" \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf -
 
