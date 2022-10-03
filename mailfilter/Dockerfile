@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/erik73/base/amd64:2.0.0
+ARG BUILD_FROM=ghcr.io/erik73/base/amd64:2.0.2
 
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
@@ -48,7 +48,7 @@ RUN apk add --no-cache \
     git \
     && mkdir -p /usr/src \
     && cd /usr/src \
-    && git clone -b 3.2 --recursive https://github.com/rspamd/rspamd \
+    && git clone -b 3.3 --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
     && export CFLAGS=-U_FORTIFY_SOURCE \
     && export CXXFLAGS=-U_FORTIFY_SOURCE \
