@@ -48,7 +48,7 @@ RUN apk add --no-cache \
     git \
     && mkdir -p /usr/src \
     && cd /usr/src \
-    && git clone -b 3.3 --recursive https://github.com/rspamd/rspamd \
+    && git clone -b 3.4 --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
     && export CFLAGS=-U_FORTIFY_SOURCE \
     && export CXXFLAGS=-U_FORTIFY_SOURCE \
