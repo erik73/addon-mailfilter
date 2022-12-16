@@ -11,7 +11,7 @@
   "panel_icon": "mdi:filter",
   "hassio_api": true,
   "ingress_port": 1337,
-  "map": ["ssl"],
+  "map": ["ssl:rw"],
   "options": {
     "enable_antivirus": false,
     "enable_dkim_signing": false
