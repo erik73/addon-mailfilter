@@ -63,13 +63,11 @@ if bashio::config.true "enable_antivirus"; then
 fi
 
 if bashio::config.false "enable_dkim_signing"; then
-    mv /etc/rspamd/local.d/dkim_signing.disabled mv /etc/rspamd/local.d/dkim_signing.conf
+    mv /etc/rspamd/local.d/dkim_signing.disabled /etc/rspamd/local.d/dkim_signing.conf
 fi
 
 if bashio::config.true "enable_dkim_signing"; then
-    mv /etc/rspamd/local.d/dkim_signing.enabled mv /etc/rspamd/local.d/dkim_signing.conf
-    bashio::log.info "Updating antivirus patterns"
-    freshclam
+    mv /etc/rspamd/local.d/dkim_signing.enabled /etc/rspamd/local.d/dkim_signing.conf
 fi
 
 if bashio::config.true "enable_dkim_signing" && ! bashio::fs.directory_exists "/ssl/dkim"; then
