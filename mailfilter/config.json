@@ -11,10 +11,13 @@
   "panel_icon": "mdi:filter",
   "hassio_api": true,
   "ingress_port": 1337,
+  "map": ["ssl"],
   "options": {
-    "enable_antivirus": false
+    "enable_antivirus": false,
+    "enable_dkim_signing": false
   },
   "schema": {
-    "enable_antivirus": "bool"
+    "enable_antivirus": "bool",
+    "enable_dkim_signing": "bool"
   }
 }

@@ -61,3 +61,20 @@ if bashio::config.true "enable_antivirus"; then
     bashio::log.info "Updating antivirus patterns"
     freshclam
 fi
+
+if bashio::config.false "enable_dkim_signing"; then
+    mv /etc/rspamd/local.d/dkim_signing.disabled mv /etc/rspamd/local.d/dkim_signing.conf
+fi
+
+if bashio::config.true "enable_dkim_signing"; then
+    mv /etc/rspamd/local.d/dkim_signing.enabled mv /etc/rspamd/local.d/dkim_signing.conf
+    bashio::log.info "Updating antivirus patterns"
+    freshclam
+fi
+
+if bashio::config.true "enable_dkim_signing" && ! bashio::fs.directory_exists "/ssl/dkim"; then
+    mkdir /ssl/dkim
+    chown rspamd:rspamd /ssl/dkim
+    rspamadm dkim_keygen -b 2048 -s dkim -d hilton.zapto.org -k hilton.zapto.org.private > hilton.zapto.org.txt
+    chown -R rspamd:rspamd /var/lib/rspamd/dkim
+fi
