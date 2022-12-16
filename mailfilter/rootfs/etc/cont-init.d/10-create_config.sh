@@ -72,7 +72,6 @@ fi
 
 if bashio::config.true "enable_dkim_signing" && ! bashio::fs.directory_exists "/ssl/dkim"; then
     mkdir /ssl/dkim
-    chown rspamd:rspamd /ssl/dkim
-    rspamadm dkim_keygen -b 2048 -s dkim -d hilton.zapto.org -k hilton.zapto.org.private > hilton.zapto.org.txt
-    chown -R rspamd:rspamd /var/lib/rspamd/dkim
+    rspamadm dkim_keygen -b 2048 -s mail -k /ssl/dkim/mail.key | tee -a /ssl/dkim/mail.pub
+    chown -R rspamd:rspamd /ssl/dkim
 fi
