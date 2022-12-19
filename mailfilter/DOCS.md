@@ -67,6 +67,8 @@ mail._domainkey IN TXT ( "v=DKIM1; k=rsa; "
 ) ;
 ```
 
+If you are running your own Bind DNS server you just need to copy and paste the
+record directly into your domain zone file.
 If you are using a DNS web interface, then you need to create a new TXT record with
 mail.\_domainkey as a name while for the value/content you will need to remove the
 quotes and concatenate all three lines together.
