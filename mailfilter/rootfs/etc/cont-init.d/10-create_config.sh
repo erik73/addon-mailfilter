@@ -66,12 +66,21 @@ if bashio::config.false "enable_dkim_signing"; then
     mv /etc/rspamd/local.d/dkim_signing.disabled /etc/rspamd/local.d/dkim_signing.conf
 fi
 
+if bashio::config.false "enable_dkim_signing" && bashio::fs.directory_exists "/ssl/dkim"; then
+    bashio::log.info "DKIM signing is disabled, but old key files found. The will be removed"
+    rm -rf /ssl/dkim
+fi
+
 if bashio::config.true "enable_dkim_signing"; then
     mv /etc/rspamd/local.d/dkim_signing.enabled /etc/rspamd/local.d/dkim_signing.conf
+    bashio::log.info "DKIM signing is enabled"
 fi
 
 if bashio::config.true "enable_dkim_signing" && ! bashio::fs.directory_exists "/ssl/dkim"; then
+    bashio::log.info "DKIM signing is enabled, but there are no keys available. Generating keys..."
     mkdir /ssl/dkim
     rspamadm dkim_keygen -b 2048 -s mail -k /ssl/dkim/mail.key | tee -a /ssl/dkim/mail.pub
     chown -R rspamd:rspamd /ssl/dkim
+    bashio::log.info "DKIM keys (mail.key and mail.pub) saved to /ssl/dkim"
+    bashio::log.info "Refer to the documentation on how to setup your DNS records"
 fi
