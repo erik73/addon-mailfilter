@@ -48,7 +48,7 @@ Depending how many other add-ons that are installed 4GB might not be enough.
 Turning this option on will enable the ClamAV virus scanner.
 See above regarding the memory considerations.
 
-#### Option: `enable_dkim_signing` (optional)
+### Option: `enable_dkim_signing` (optional)
 
 Enables DKIM signing for outgoing emails.
 At the first start with this option enabled a DKIM key is generated.
@@ -60,7 +60,7 @@ The selector is 'mail' and a 2048 bit rsa key is generated.
 The mail.key and mail.pub files are saved in the /ssl/dkim directory in
 Home Assistant. Here is a sample output in the add-on log:
 
-```yaml
+```
 mail._domainkey IN TXT ( "v=DKIM1; k=rsa; "
 "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqdBRCqYzshc4LmmkxUkCH/rcIpSe/QdNIVmBrgqZmZ5zzWQi7ShdFOH7V32/VM1VRk2pkjDV7tmfbwslsymsfxgGhVHbU0R3803uRfxAiT2mYu1hCc9351YpZF4WnrdoA3BT5juS3YUo5LsDxvZCxISnep8VqVSAZOmt8wFsZKBXiIjWuoI6XnWrzsAfoaeGaVuUZBmi4ZTg0O4yl"
 "nVlIz11McdZTRe1FlONOzO7ZkQFb7O6ogFepWLsM9tYJ38TFPteqyO3XBjxHzp1AT0UvsPcauDoeHUXgqbxU7udG1t05f6ab5h/Kih+jisgHHF4ZFK3qRtawhWlA9DtS35DlwIDAQAB"
@@ -69,9 +69,9 @@ mail._domainkey IN TXT ( "v=DKIM1; k=rsa; "
 
 If you are using a DNS web interface, then you need to create a new TXT record with mail.\_domainkey
 as a name while for the value/content you will need to remove the quotes an concatenate all three lines together.
-In our case the value/content of the TXT record should look like this
+In our case the value/content of the TXT record should look like this:
 
-```yaml
+```
 v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqdBRCqYzshc4LmmkxUkCH/rcIpSe/QdNIVmBrgqZmZ5zzWQi7ShdFOH7V32/VM1VRk2pkjDV7tmfbwslsymsfxgGhVHbU0R3803uRfxAiT2mYu1hCc9351YpZF4WnrdoA3BT5juS3YUo5LsDxvZCxISnep8VqVSAZOmt8wFsZKBXiIjWuoI6XnWrzsAfoaeGaVuUZBmi4ZTg0O4ylnVlIz11McdZTRe1FlONOzO7ZkQFb7O6ogFepWLsM9tYJ38TFPteqyO3XBjxHzp1AT0UvsPcauDoeHUXgqbxU7udG1t05f6ab5h/Kih+jisgHHF4ZFK3qRtawhWlA9DtS35DlwIDAQAB
 ```
 
