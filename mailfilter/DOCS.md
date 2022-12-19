@@ -67,8 +67,9 @@ mail._domainkey IN TXT ( "v=DKIM1; k=rsa; "
 ) ;
 ```
 
-If you are using a DNS web interface, then you need to create a new TXT record with mail.\_domainkey
-as a name while for the value/content you will need to remove the quotes an concatenate all three lines together.
+If you are using a DNS web interface, then you need to create a new TXT record with
+mail.\_domainkey as a name while for the value/content you will need to remove the quotes
+an concatenate all three lines together.
 In our case the value/content of the TXT record should look like this:
 
 ```
