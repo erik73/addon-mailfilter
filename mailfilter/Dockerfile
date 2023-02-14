@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/erik73/base/amd64:2.0.3
+ARG BUILD_FROM=ghcr.io/erik73/base/amd64:2.0.5
 
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
@@ -60,7 +60,7 @@ RUN apk add --no-cache \
         /tmp/* \
         /usr/src/rspamd \
     && mkdir -p /run/systemd/journal \
-    && S6_VERSION="3.1.2.1" \
+    && S6_VERSION="3.1.3.0" \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf -
 
