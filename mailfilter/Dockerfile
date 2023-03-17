@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/erik73/base/amd64:2.0.5
+ARG BUILD_FROM=ghcr.io/erik73/base/amd64:2.0.6
 
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
@@ -48,7 +48,7 @@ RUN apk add --no-cache \
     git \
     && mkdir -p /usr/src \
     && cd /usr/src \
-    && git clone -b 3.4 --recursive https://github.com/rspamd/rspamd \
+    && git clone -b 3.5 --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
     && export CFLAGS=-U_FORTIFY_SOURCE \
     && export CXXFLAGS=-U_FORTIFY_SOURCE \
@@ -60,7 +60,7 @@ RUN apk add --no-cache \
         /tmp/* \
         /usr/src/rspamd \
     && mkdir -p /run/systemd/journal \
-    && S6_VERSION="3.1.3.0" \
+    && S6_VERSION="3.1.4.1" \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf -
 
