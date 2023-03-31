@@ -30,6 +30,7 @@
         "ARG RSPAMD_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
       ],
       "datasourceTemplate": "github-tags",
+      "versioningTemplate": "loose",
       "depNameTemplate": "rspamd/rspamd"
     },
     {
@@ -55,12 +56,6 @@
     {
       "groupName": "Add-on base image",
       "matchDatasources": ["docker"],
-      "matchUpdateTypes": ["minor", "patch"],
-      "automerge": true
-    },
-    {
-      "matchDatasources": ["github-tags"],
-      "matchDepNames": ["rspamd/rspamd"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
     }
