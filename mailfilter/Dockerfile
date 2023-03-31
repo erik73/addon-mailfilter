@@ -27,7 +27,11 @@ RUN apk add --no-cache \
     clamav=0.105.2-r0 \
     clamav-libunrar=0.105.2-r0 \
     redis=7.0.10-r0 \
-    rspamd=3.5-r1
+    rspamd=3.5-r1 \
+    rspamd-controller=3.5-r1 \
+    rspamd-fuzzy=3.5-r1 \
+    rspamd-openrc=3.5-r1 \
+    rspamd-utils=3.5-r1
 
 ENV LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
 
