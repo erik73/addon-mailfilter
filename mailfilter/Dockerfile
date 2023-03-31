@@ -40,7 +40,7 @@ RUN apk add --no-cache \
     glib-dev=2.74.6-r0 \
     icu-dev=72.1-r1 \
     libsodium-dev=1.0.18-r2 \
-    openssl-dev=3.0.8-r1 \
+    openssl-dev=3.0.8-r3 \
     pcre2-dev=10.42-r0 \
     perl=5.36.0-r0 \
     ragel=6.10-r1 \
