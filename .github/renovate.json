@@ -27,11 +27,10 @@
     {
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": [
-        "ARG POSTFIXADMIN_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
+        "ARG RSPAMD_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
       ],
-      "datasourceTemplate": "github-tags",
-      "versioningTemplate": "loose",
-      "depNameTemplate": "postfixadmin/postfixadmin"
+      "datasourceTemplate": "github-releases",
+      "depNameTemplate": "rspamd/rspamd"
     },
     {
       "fileMatch": ["/Dockerfile$"],

@@ -14,6 +14,7 @@ ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
 ARG S6_OVERLAY_VERSION="v3.1.4.1"
+ARG RSPAMD_VERSION="3.4"
 
 # Setup base
 
@@ -49,7 +50,7 @@ RUN apk add --no-cache \
     git=2.38.4-r1 \
     && mkdir -p /usr/src \
     && cd /usr/src \
-    && git clone -b 3.5 --recursive https://github.com/rspamd/rspamd \
+    && git clone -b "${RSPAMD_VERSION}" --recursive https://github.com/rspamd/rspamd \
     && cd rspamd \
     && export CFLAGS=-U_FORTIFY_SOURCE \
     && export CXXFLAGS=-U_FORTIFY_SOURCE \
