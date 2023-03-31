@@ -1,4 +1,5 @@
 #!/command/with-contenv bashio
+# shellcheck disable=SC2086,SC2016,SC2027
 
     addgroup -S rspamd
     adduser -S -D -H -G rspamd rspamd
