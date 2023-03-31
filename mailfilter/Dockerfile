@@ -13,39 +13,40 @@ ARG BUILD_NAME
 ARG BUILD_REF
 ARG BUILD_REPOSITORY
 ARG BUILD_VERSION
+ARG S6_OVERLAY_VERSION="v3.1.4.1"
 
 # Setup base
 
 RUN apk add --no-cache \
-    nginx \ 
-    clamav-libs \
-    freshclam \
-    clamav-scanner \
-    clamav-daemon \
-    clamav \
-    clamav-libunrar \
-    redis \
-    libsodium \
-    sqlite-libs \
-    glib \
-    icu-libs \
-    lua5.3 \
+    nginx=1.22.1-r0 \ 
+    clamav-libs=0.105.2-r0 \
+    freshclam=0.105.2-r0 \
+    clamav-scanner=0.105.2-r0 \
+    clamav-daemon=0.105.2-r0 \
+    clamav=0.105.2-r0 \
+    clamav-libunrar=0.105.2-r0 \
+    redis=7.0.10-r0 \
+    libsodium=1.0.18-r2 \
+    sqlite-libs=3.40.1-r0 \
+    glib=2.74.6-r0 \
+    icu-libs=72.1-r1 \
+    lua5.3=5.3.6-r4 \
 && apk add --no-cache --virtual .build-dependencies \
-    build-base \
-    cmake \
-    curl-dev \
-    file-dev \
-    gd-dev \
-    glib-dev \
-    icu-dev \
-    libsodium-dev \
-    openssl-dev \
-    pcre2-dev \
-    perl \
-    ragel \
-    sqlite-dev \
-    lua5.3-dev \
-    git \
+    build-base=0.5-r3 \
+    cmake=3.24.4-r0 \
+    curl-dev=7.88.1-r1 \
+    file-dev=5.43-r0 \
+    gd-dev=2.3.3-r3 \
+    glib-dev=2.74.6-r0 \
+    icu-dev=72.1-r1 \
+    libsodium-dev=1.0.18-r2 \
+    openssl-dev=3.0.8-r1 \
+    pcre2-dev=10.42-r0 \
+    perl=5.36.0-r0 \
+    ragel=6.10-r1 \
+    sqlite-dev=3.40.1-r0 \
+    lua5.3-dev=5.3.6-r4 \
+    git=2.38.4-r1 \
     && mkdir -p /usr/src \
     && cd /usr/src \
     && git clone -b 3.5 --recursive https://github.com/rspamd/rspamd \
@@ -60,9 +61,8 @@ RUN apk add --no-cache \
         /tmp/* \
         /usr/src/rspamd \
     && mkdir -p /run/systemd/journal \
-    && S6_VERSION="3.1.4.1" \
-    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/v${S6_VERSION}/syslogd-overlay-noarch.tar.xz" \
-        | tar -C / -Jxpf -
+    && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
+        | tar -C / -Jxpf - 
 
 ENV LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
 
