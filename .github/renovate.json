@@ -29,7 +29,7 @@
       "matchStrings": [
         "ARG RSPAMD_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
       ],
-      "datasourceTemplate": "github-releases",
+      "datasourceTemplate": "github-tags",
       "depNameTemplate": "rspamd/rspamd"
     },
     {
@@ -59,7 +59,7 @@
       "automerge": true
     },
     {
-      "matchDatasources": ["github-releases"],
+      "matchDatasources": ["github-tags"],
       "matchDepNames": ["rspamd/rspamd"],
       "matchUpdateTypes": ["minor", "patch"],
       "automerge": true
