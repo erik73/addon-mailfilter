@@ -1,8 +1,8 @@
 #!/command/with-contenv bashio
 # shellcheck disable=SC2086,SC2016,SC2027
 
-    addgroup -S rspamd
-    adduser -S -D -H -G rspamd rspamd
+    # addgroup -S rspamd
+    # adduser -S -D -H -G rspamd rspamd
     mkdir -p /data/lib/rspamd
     mkdir -p /data/lib/redis
     mkdir -p /data/lib/clamav
