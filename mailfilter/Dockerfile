@@ -20,11 +20,11 @@ ARG RSPAMD_VERSION="3.5"
 
 RUN apk add --no-cache \
     nginx=1.24.0-r3 \
-    freshclam=0.105.2-r0 \
-    clamav-scanner=0.105.2-r0 \
-    clamav-daemon=0.105.2-r0 \
-    clamav=0.105.2-r0 \
-    clamav-libunrar=0.105.2-r0 \
+    freshclam=1.1.0-r0 \
+    clamav-scanner=1.1.0-r0 \
+    clamav-daemon=1.1.0-r0 \
+    clamav=1.1.0-r0 \
+    clamav-libunrar=1.1.0-r0 \
     redis=7.0.11-r0 \
     rspamd=3.5-r1 \
     rspamd-openrc=3.5-r1 \
