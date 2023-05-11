@@ -56,6 +56,12 @@
       "automerge": true
     },
     {
+      "groupName": "Rspamd",
+      "matchDatasources": ["repology"],
+      "matchDepPatterns": ["alpine.*/rspamd.*"],
+      "automerge": true
+    },
+    {
       "groupName": "Add-on base image",
       "matchDatasources": ["docker"]
     },
