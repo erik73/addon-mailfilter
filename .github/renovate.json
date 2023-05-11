@@ -50,15 +50,15 @@
       "automerge": true
     },
     {
-      "groupName": "Clamav",
-      "matchDatasources": ["repology"],
-      "matchDepPatterns": ["alpine.*/clamav.*"],
-      "automerge": true
-    },
-    {
       "groupName": "Rspamd",
       "matchDatasources": ["repology"],
       "matchDepPatterns": ["alpine.*/rspamd.*"],
+      "automerge": true
+    },
+    {
+      "groupName": "Clamav",
+      "matchDatasources": ["repology"],
+      "matchPackagePatterns": ["^alpine_.*/(clamav|freshclam).*$"],
       "automerge": true
     },
     {
