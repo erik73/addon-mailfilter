@@ -50,6 +50,12 @@
       "automerge": true
     },
     {
+      "groupName": "Clamav",
+      "matchDatasources": ["repology"],
+      "matchDepPatterns": ["alpine.*/clamav.*"],
+      "automerge": true
+    },
+    {
       "groupName": "Add-on base image",
       "matchDatasources": ["docker"]
     },
