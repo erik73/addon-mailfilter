@@ -85,3 +85,10 @@ if bashio::config.true "enable_dkim_signing" && ! bashio::fs.directory_exists "/
     bashio::log.info "DKIM keys (mail.key and mail.pub) saved to /ssl/dkim"
     bashio::log.info "Refer to the documentation on how to setup your DNS records"
 fi
+
+# Fix for corrupted Hyperscan files
+if ! bashio::fs.file_exists '/var/lib/rspamd/Version-3.0.1'; then
+    bashio::log.info "Deleting Hyperscan files to force re-creation"
+    rm -rf /var/lib/rspamd/*hs*
+    touch /var/lib/rspamd/Version-3.0.1
+fi
