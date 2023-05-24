@@ -19,7 +19,7 @@ ARG RSPAMD_VERSION="3.5"
 # Setup base
 
 RUN apk add --no-cache \
-    nginx=1.24.0-r4 \
+    nginx=1.24.0-r5 \
     freshclam=1.1.0-r0 \
     clamav-scanner=1.1.0-r0 \
     clamav-daemon=1.1.0-r0 \
