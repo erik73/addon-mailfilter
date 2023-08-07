@@ -25,8 +25,8 @@ RUN apk add --no-cache \
     clamav=1.1.0-r0 \
     clamav-libunrar=1.1.0-r0 \
     redis=7.0.12-r0 \
-    rspamd=3.6-r0 \
-    rspamd-openrc=3.6-r0 \
+    rspamd=3.6-r1 \
+    rspamd-openrc=3.6-r1 \
     && mkdir -p /run/systemd/journal \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - 
