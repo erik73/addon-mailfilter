@@ -26,15 +26,6 @@
     },
     {
       "fileMatch": ["/Dockerfile$"],
-      "matchStrings": [
-        "ARG RSPAMD_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
-      ],
-      "datasourceTemplate": "github-tags",
-      "versioningTemplate": "loose",
-      "depNameTemplate": "rspamd/rspamd"
-    },
-    {
-      "fileMatch": ["/Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
         "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\s+"
