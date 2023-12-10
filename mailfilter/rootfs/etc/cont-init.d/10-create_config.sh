@@ -87,8 +87,8 @@ if bashio::config.true "enable_dkim_signing" && ! bashio::fs.directory_exists "/
 fi
 
 # Fix for corrupted Hyperscan files
-if ! bashio::fs.file_exists '/var/lib/rspamd/Version-3.0.1'; then
+if ! bashio::fs.file_exists '/var/lib/rspamd/Version-3.7.4'; then
     bashio::log.info "Deleting Hyperscan files to force re-creation"
     rm -rf /var/lib/rspamd/*hs*
-    touch /var/lib/rspamd/Version-3.0.1
+    touch /var/lib/rspamd/Version-3.7.4
 fi
