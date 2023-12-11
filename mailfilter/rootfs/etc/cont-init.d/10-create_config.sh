@@ -19,12 +19,6 @@
     chown -R clamav:clamav /var/lib/clamav/
     mkdir /run/rspamd
     
-    # Disable DKIM Signing
-    # mkdir -p /var/lib/rspamd/dkim/
-    # chown rspamd:rspamd /var/lib/rspamd/dkim
-    # rspamadm dkim_keygen -b 2048 -s mail -k /var/lib/rspamd/dkim/mail.key | tee -a  /var/lib/rspamd/dkim/mail.pub
-    # chown -R rspamd:rspamd /var/lib/rspamd/dkim
-
 # Add symbolic link to make logging work in older supervisor
 if ! readlink /dev/log >/dev/null 2>&1
 then
