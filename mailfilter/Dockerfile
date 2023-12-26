@@ -17,8 +17,6 @@ ARG S6_OVERLAY_VERSION="v3.1.6.2"
 
 # Setup base
 
-sed -i 's|v3\.\d*|edge|' /etc/apk/repositories
-
 RUN apk add --no-cache \
     nginx=1.24.0-r14 \
     freshclam=1.2.1-r0 \
