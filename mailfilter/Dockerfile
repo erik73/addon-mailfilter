@@ -25,8 +25,8 @@ RUN apk add --no-cache \
     clamav=1.2.1-r0 \
     clamav-libunrar=1.2.1-r0 \
     redis=7.2.3-r0 \
-    rspamd --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
-    rspamd-openrc --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
+    rspamd --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
+    rspamd-openrc --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
     && mkdir -p /run/systemd/journal \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - 
