@@ -25,7 +25,6 @@ RUN apk add --no-cache \
     clamav=1.2.1-r0 \
     clamav-libunrar=1.2.1-r0 \
     redis=7.2.3-r0 \
-    --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/
     rspamd --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
     rspamd-openrc --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing/ \
     && mkdir -p /run/systemd/journal \
