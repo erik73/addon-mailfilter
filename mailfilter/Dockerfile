@@ -18,7 +18,7 @@ ARG S6_OVERLAY_VERSION="v3.1.6.2"
 # Setup base
 
 RUN apk add --no-cache \
-    nginx=1.24.0-r14 \
+    nginx=1.24.0-r15 \
     freshclam=1.2.1-r0 \
     clamav-scanner=1.2.1-r0 \
     clamav-daemon=1.2.1-r0 \
