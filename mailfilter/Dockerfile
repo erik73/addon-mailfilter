@@ -19,11 +19,11 @@ ARG S6_OVERLAY_VERSION="v3.1.6.2"
 
 RUN apk add --no-cache \
     nginx=1.24.0-r15 \
-    freshclam=1.2.1-r0 \
-    clamav-scanner=1.2.1-r0 \
-    clamav-daemon=1.2.1-r0 \
-    clamav=1.2.1-r0 \
-    clamav-libunrar=1.2.1-r0 \
+    freshclam=1.2.2-r0 \
+    clamav-scanner=1.2.2-r0 \
+    clamav-daemon=1.2.2-r0 \
+    clamav=1.2.2-r0 \
+    clamav-libunrar=1.2.2-r0 \
     redis=7.2.4-r0 \
     rspamd --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
     rspamd-openrc --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community \
