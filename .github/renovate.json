@@ -5,8 +5,9 @@
   "labels": ["dependencies", "no-stale"],
   "commitMessagePrefix": "⬆️",
   "commitMessageTopic": "{{depName}}",
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$", "/build.yaml$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
@@ -16,6 +17,7 @@
       "datasourceTemplate": "docker"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStrings": [
         "ARG S6_OVERLAY_VERSION=[\"']?(?<currentValue>.+?)[\"']?\\s+"
@@ -25,6 +27,7 @@
       "depNameTemplate": "just-containers/s6-overlay"
     },
     {
+      "customType": "regex",
       "fileMatch": ["/Dockerfile$"],
       "matchStringsStrategy": "any",
       "matchStrings": [
@@ -43,14 +46,14 @@
     {
       "groupName": "Rspamd",
       "matchDatasources": ["repology"],
-      "matchDepPatterns": ["alpine.*/rspamd.*"],
-      "automerge": true
+      "automerge": true,
+      "matchDepNames": ["/alpine.*/rspamd.*/"]
     },
     {
       "groupName": "Clamav",
       "matchDatasources": ["repology"],
-      "matchPackagePatterns": ["^alpine_.*/(clamav|freshclam).*$"],
-      "automerge": true
+      "automerge": true,
+      "matchPackageNames": ["/^alpine_.*/(clamav|freshclam).*$/"]
     },
     {
       "groupName": "Add-on base image",
