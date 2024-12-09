@@ -19,11 +19,11 @@ ARG S6_OVERLAY_VERSION="v3.2.0.2"
 
 RUN apk add --no-cache \
     nginx=1.26.2-r3 \
-    freshclam=1.2.2-r0 \
-    clamav-scanner=1.2.2-r0 \
-    clamav-daemon=1.2.2-r0 \
-    clamav=1.2.2-r0 \
-    clamav-libunrar=1.2.2-r0 \
+    freshclam=1.4.1-r0 \
+    clamav-scanner=1.4.1-r0 \
+    clamav-daemon=1.4.1-r0 \
+    clamav=1.4.1-r0 \
+    clamav-libunrar=1.4.1-r0 \
     redis=7.2.5-r2 \
     rspamd=3.8.4-r0 \
     rspamd-openrc=3.8.4-r0 \
