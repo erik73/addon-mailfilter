@@ -19,6 +19,8 @@ map:
 options:
   enable_antivirus: false
   enable_dkim_signing: false
+  log_level: warning
 schema:
   enable_antivirus: bool
   enable_dkim_signing: bool
+  log_level: list(debug|silent|info|notice|warning|error)?

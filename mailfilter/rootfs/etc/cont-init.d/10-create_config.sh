@@ -40,9 +40,11 @@ rspamdpw="$(date | md5sum)"
 encryptedpw="$(rspamadm pw --encrypt -p ${rspamdpw})"
 encryptedenpw="$(rspamadm pw --encrypt -p ${rspamdpw})"
 myip="$(ip route get 1 | awk '{print $NF;exit}')"
+loglevel=$(bashio::config 'log_level')
 sed -i "4 s/password = /password = "${encryptedpw}";/g" /etc/rspamd/local.d/worker-controller.inc
 sed -i "5 s/enable_password = /enable_password = "${encryptedenpw}";/g" /etc/rspamd/local.d/worker-controller.inc
 sed -i '2 s/^bind.*$/bind_socket = "'${myip}:11332'";/g' /etc/rspamd/local.d/worker-proxy.inc
+sed -i '17 s/level = /level = "'${loglevel}'";/g' /etc/rspamd/local.d/logging.inc
 
 #Remove antivirus service files if disabled
 if bashio::config.false "enable_antivirus"; then
