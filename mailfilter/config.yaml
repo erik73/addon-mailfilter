@@ -23,4 +23,5 @@ options:
 schema:
   enable_antivirus: bool
   enable_dkim_signing: bool
+  enable_gtube_tests: bool?
   log_level: list(debug|silent|info|notice|warning|error)?
