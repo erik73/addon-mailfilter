@@ -1,0 +1,1 @@
+gtube_patterns = "all"
