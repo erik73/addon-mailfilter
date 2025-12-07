@@ -24,7 +24,7 @@ RUN apk add --no-cache \
     clamav-daemon=1.4.3-r2 \
     clamav=1.4.3-r2 \
     clamav-libunrar=1.4.3-r2 \
-    redis=8.0.4-r0 \
+    redis=8.4.0-r0 \
     rspamd=3.11.1-r2 \
     rspamd-openrc=3.11.1-r2 \
     && mkdir -p /run/systemd/journal \
