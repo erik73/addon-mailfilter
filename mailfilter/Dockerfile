@@ -31,7 +31,7 @@ RUN apk add --no-cache \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - 
 
-# Copy data for add-on
+# Copy data for app
 COPY rootfs /
 
 # Labels

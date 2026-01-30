@@ -1,4 +1,4 @@
-# Home Assistant Add-on: Mailfilter
+# Home Assistant App: Mailfilter
 
 ![Project Stage][project-stage-shield]
 
@@ -10,15 +10,14 @@
 [![GitHub Activity][commits-shield]][commits]
 
 A mailfilter based on Rspamd and ClamAV for the Mailserver
-add-on published in this repository.
+app published in this repository.
 
 ## About
 
-Important: This add-on is requires that the Home Assistant Mailserver add-on
+Important: This app is requires that the Home Assistant Mailserver app
 is installed!
 
-This addon is experimental, and provides a mailfilter for your
-Home Assistant mailserver.
+This app provides a mailfilter for your Home Assistant mailserver.
 
 ## Support
 
@@ -30,7 +29,7 @@ You could [open an issue here][issue] GitHub.
 
 MIT License
 
-Copyright (c) 2019-2025 Erik Hilton
+Copyright (c) 2019-2026 Erik Hilton
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -57,5 +56,5 @@ SOFTWARE.
 [github-actions-shield]: https://github.com/erik73/addon-mailfilter/workflows/CI/badge.svg
 [github-actions]: https://github.com/erik73/addon-mailfilter/actions
 [issue]: https://github.com/erik73/addon-mailfilter/issues
-[maintenance-shield]: https://img.shields.io/maintenance/yes/2025.svg
+[maintenance-shield]: https://img.shields.io/maintenance/yes/2026.svg
 [project-stage-shield]: https://img.shields.io/badge/project%20stage-production%20ready-brightgreen.svg

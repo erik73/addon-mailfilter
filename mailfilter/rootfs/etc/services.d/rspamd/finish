@@ -1,10 +1,10 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Add-on: Mailfilter
+# Home Assistant App: Mailfilter
 # Take down the S6 supervision tree when Rspamd fails
 # ==============================================================================
 if [[ "${1}" -ne 0 ]] && [[ "${1}" -ne 256 ]]; then
-    bashio::log.warning "Rspamd crashed, halting add-on"
+    bashio::log.warning "Rspamd crashed, halting app"
     /run/s6/basedir/bin/halt
 fi
 
