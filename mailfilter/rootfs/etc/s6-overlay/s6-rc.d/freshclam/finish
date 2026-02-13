@@ -1,11 +1,11 @@
 #!/command/with-contenv bashio
 # ==============================================================================
-# Home Assistant Community App: phpMyAdmin
-# Take down the S6 supervision tree when ClamAV fails
+# Home Assistant Community App: Mailfilter
+# Take down the S6 supervision tree when Freshclam fails
 # ==============================================================================
 if [[ "${1}" -ne 0 ]] && [[ "${1}" -ne 256 ]]; then
-    bashio::log.warning "ClamAV crashed, halting app"
+    bashio::log.warning "Freshclam crashed, halting app"
     /run/s6/basedir/bin/halt
 fi
 
-bashio::log.info "ClamAV stopped, restarting..."
+bashio::log.info "Freshclam stopped, restarting..."
