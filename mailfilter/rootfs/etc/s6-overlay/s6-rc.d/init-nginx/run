@@ -1,6 +1,6 @@
 #!/command/with-contenv bashio
  # ==============================================================================
- # Home Assistant App: Mailserver
+ # Home Assistant App: Mailfilter
  # Configures NGINX
  # ==============================================================================
  declare port
