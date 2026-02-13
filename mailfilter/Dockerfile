@@ -32,10 +32,10 @@ RUN apk add --no-cache \
     && mkdir -p /run/systemd/journal \
     && curl -L -s "https://github.com/just-containers/s6-overlay/releases/download/${S6_OVERLAY_VERSION}/syslogd-overlay-noarch.tar.xz" \
         | tar -C / -Jxpf - \
-    sed -i 's#^ + .*$# + -^auth\\\\. -^authpriv\\\\. -user\\\\. -local\\\\. -mail\\\\. $T ${dir}/everything#' /etc/s6-overlay/s6-rc.d/syslogd-log/run \
-    sed -i '22 s# .*$# - +^[[:alnum:]]*\\\\.info: +^[[:alnum:]]*\\\\.notice: +^[[:alnum:]]*\\\\.warn: -^auth\\\\. -^authpriv\\\\. -^cron\\\\. -daemon\\\\. -local\\\. -user\\\\. -mail\\\\.  $T ${dir}/messages#' /etc/s6-overlay/s6-rc.d/syslogd-log/run \
-    sed -i 's#^backtick .*$#backtick -D "n20 s1000000 T 1" line { printcontenv S6_LOGGING_SCRIPT }#' /etc/s6-overlay/s6-rc.d/syslogd-log/run \
-    sed -i 's#^s6-socklog .*$#s6-socklog -d3 -U -t3000 -x /run/systemd/journal/dev-log#' /etc/s6-overlay/s6-rc.d/syslogd/run
+    && sed -i 's#^ + .*$# + -^auth\\\\. -^authpriv\\\\. -user\\\\. -local\\\\. -mail\\\\. $T ${dir}/everything#' /etc/s6-overlay/s6-rc.d/syslogd-log/run \
+    && sed -i '22 s# .*$# - +^[[:alnum:]]*\\\\.info: +^[[:alnum:]]*\\\\.notice: +^[[:alnum:]]*\\\\.warn: -^auth\\\\. -^authpriv\\\\. -^cron\\\\. -daemon\\\\. -local\\\. -user\\\\. -mail\\\\.  $T ${dir}/messages#' /etc/s6-overlay/s6-rc.d/syslogd-log/run \
+    && sed -i 's#^backtick .*$#backtick -D "n20 s1000000 T 1" line { printcontenv S6_LOGGING_SCRIPT }#' /etc/s6-overlay/s6-rc.d/syslogd-log/run \
+    && sed -i 's#^s6-socklog .*$#s6-socklog -d3 -U -t3000 -x /run/systemd/journal/dev-log#' /etc/s6-overlay/s6-rc.d/syslogd/run
 
 # Copy data for app
 COPY rootfs /
