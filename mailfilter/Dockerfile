@@ -6,6 +6,8 @@ FROM ${BUILD_FROM}
 # Set shell
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+ENV S6_STAGE2_HOOK=/etc/s6-s2-hook/disable-services.sh
+
 ARG BUILD_ARCH
 ARG BUILD_DATE
 ARG BUILD_DESCRIPTION

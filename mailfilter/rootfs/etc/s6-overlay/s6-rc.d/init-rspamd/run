@@ -36,13 +36,6 @@ sed -i "5 s/enable_password = /enable_password = "${encryptedenpw}";/g" /etc/rsp
 sed -i '2 s/^bind.*$/bind_socket = "'${myip}:11332'";/g' /etc/rspamd/local.d/worker-proxy.inc
 sed -i '17 s/level = /level = "'${loglevel}'";/g' /etc/rspamd/local.d/logging.inc
 
-#Remove antivirus service files if disabled
-if bashio::config.false "enable_antivirus"; then
-    rm -fr /etc/services.d/clamav
-    rm -fr /etc/services.d/freshclam
-    rm -rf /data/lib/clamav
-fi
-
 if bashio::config.true "enable_antivirus"; then
     sed -i '1d' /etc/rspamd/local.d/antivirus.conf
     bashio::log.info "Updating antivirus patterns"
